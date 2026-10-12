@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: 60px 60px 60px;
+    justify-content: center;
+}
+
+.numbers {
+    background: orange;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.other {
+    background: teal;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.numbers:hover {
+    background: rgb(255, 184, 122);
+}
+
+.other:hover {
+    background: lightblue;
+}
+
+.numbers:active {
+    background: darkorange;
+}
+
+.other:active {
+    background: darkslategray;
+}
