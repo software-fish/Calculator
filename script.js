@@ -4,6 +4,7 @@ let operator_clicked = false
 let first_num = '';
 let second_num = '';
 let result = '';
+let what_operator;
 
 buttons.addEventListener("click", ({ target }) => {
     if (target.textContent === "clear") {
@@ -13,11 +14,39 @@ buttons.addEventListener("click", ({ target }) => {
     } else if (!operator_clicked && !isNaN(target.textContent)) {
         display_num.innerHTML += target.textContent
         first_num += target.textContent
-    } else if (!operator_clicked && isNaN(target.textContent) && target.textContent != "=") {
+    } else if (!operator_clicked && isNaN(target.textContent) && target.textContent !== "=") {
         operator_clicked = true
         display_num.innerHTML += target.textContent
-    } else if (operator_clicked) {
+        what_operator = target.textContent
+    } else if (operator_clicked && target.textContent !== '=') {
         display_num.innerHTML += target.textContent
         second_num += target.textContent
+    } else if (second_num && target.textContent === '=') {
+        switch (what_operator) {
+            case "+":
+                result = Number.parseInt(first_num) + Number.parseInt(second_num)
+                first_num = ''
+                second_num = ''
+                display_num.innerHTML = result;
+            break;
+            case "-":
+                result = Number.parseInt(first_num) - Number.parseInt(second_num)
+                first_num = ''
+                second_num = ''
+                display_num.innerHTML = result;
+            break;
+            case "*":
+                result = Number.parseInt(first_num) * Number.parseInt(second_num)
+                first_num = ''
+                second_num = ''
+                display_num.innerHTML = result;
+            break;
+            case "/":
+                result = Number.parseInt(first_num) / Number.parseInt(second_num)
+                first_num = ''
+                second_num = ''
+                display_num.innerHTML = result;
+            break;
+        }
     }
 })
