@@ -35,3 +35,7 @@ html {
 .other:active {
     background: darkslategray;
 }
+
+.number-display {
+    text-align: center;
+}
